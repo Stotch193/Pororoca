@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SENAI - Cadastro de Cidades</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:panel header="Cadastro de Cidade" id="pnl">
+			<p:panelGrid columns="2">
+
+
+				<p:outputLabel value="Nome da Cidade:" id="nomecidade" />
+				<p:inputText type="text" title="Cidade *" required="true"
+					requiredMessage="O nome da Cidade deve conter entre 4 e 40 caracteres."
+					validatorMessage="" value="#{cidadeBean.cidade.nomeCidade}" />
+
+				<p:outputLabel value="UF da cidade: " id="ufcidade" />
+				<p:selectOneMenu value="#{cidadeBean.cidade.estadoCidade}"
+					required="true" requiredMessage="Preencha o campo 'UF da Cidade: '">
+					<f:selectItem itemLabel="Selecione..." itemValue="#{null}" />
+					<f:selectItems value="#{cidadeBean.estados}" var="estado"
+						itemLabel="#{estado.label}" itemValue="#{estado}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Data de Cadastro" id="datacadastro" />
+				<p:calendar value="#{cidadeBean.cidade.cadastroCidade}"
+					pattern="dd/MM/yy" maxdate="#{cidadeBean.cidade.lastUpdae}"
+					required="true"
+					requiredMessage="Preencha campo 'Data do cadastro:'" />
+
+				<p:outputLabel />
+				<p:commandButton value="Salvar" action="#{cidadeBean.salvar}"
+					update="@form" icon="ui-icon-disk" id="saveBtn" />
+
+			</p:panelGrid>
+		</p:panel>
+
+		<p:blockUI block="pnl" trigger="saveBtn">
+			<p:graphicImage value="#{resource['images:pageloader.gif']}" />
+		</p:blockUI>
+
+	</h:form>
+
+</h:body>
+</html>

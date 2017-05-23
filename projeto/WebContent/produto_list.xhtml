@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SENAI - Cadastro de Produto</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		
+		<p:growl />
+		
+		<p:panel header="Cadastro de Produto">
+			<p:dataTable value="#{produtoBean.produtos}" var="produto"
+				emptyMessage="Ainda não temos registros para os critérios de busca">
+				
+				<p:column headerText="Nome do Produto" sortBy="#{produto.nomeProduto}">
+					<h:outputText value="#{produto.nomeProduto}" />
+				</p:column>
+
+				<p:column headerText="Data de Cadastro" width="120"
+					style="text-align:center;">
+					<h:outputText value="#{produto.cadastroProduto}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				
+				<p:column headerText="Fornecedor do Produto" sortBy="#{produto.fornecedorProduto}">
+					<h:outputText value="#{produto.fornecedorProduto}" />
+				</p:column>
+
+				<p:column headerText="Update" width="120" style="text-align:center;">
+					<h:outputText value="#{produto.lastUpdate}">
+						<f:convertDateTime pattern="dd/MM/yy" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Active" width="60" style="text-align:center;">
+					<p:selectBooleanCheckbox value="#{produto.active}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
