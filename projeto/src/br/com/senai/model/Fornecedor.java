@@ -12,8 +12,6 @@ public class Fornecedor implements Serializable {
 
 	private static final long serialVersionUID = 4218573019122278677L;
 
-	@Id
-	@GeneratedValue
 	private Long id;
 	private Date cadastroFornecedor = new Date();
 	private String fantasiaFornecedor;
@@ -24,6 +22,8 @@ public class Fornecedor implements Serializable {
 	private boolean active = true;
 	private Date lastUpdate = new Date();
 
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -125,9 +125,10 @@ public class Fornecedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Fornecedor [id=" + id + ", cadastroFornecedor=" + cadastroFornecedor + ", fantasiaFornecedor=" + fantasiaFornecedor + ", emailFornecedor="
-				+ emailFornecedor + ", foneaFornecedor=" + foneaFornecedor + ", enderecoFornecedor="
-				+ enderecoFornecedor + ", cidadeFornecedor=" + cidadeFornecedor + ", active=" + active + ", lastUpdate="
-				+ lastUpdate + "]";
+		return "Fornecedor [id=" + id + ", cadastroFornecedor=" + cadastroFornecedor + ", fantasiaFornecedor="
+				+ fantasiaFornecedor + ", emailFornecedor=" + emailFornecedor + ", foneaFornecedor=" + foneaFornecedor
+				+ ", enderecoFornecedor=" + enderecoFornecedor + ", cidadeFornecedor=" + cidadeFornecedor + ", active="
+				+ active + ", lastUpdate=" + lastUpdate + "]";
 	}
+
 }

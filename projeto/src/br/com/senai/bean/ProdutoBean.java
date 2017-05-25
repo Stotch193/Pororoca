@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.senai.dao.ProdutoDAO;
+import br.com.senai.model.Cidade;
 import br.com.senai.model.Produto;
 
 
@@ -30,6 +31,11 @@ public class ProdutoBean {
 		produto = new Produto();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto salvo com sucesso!"));
 		return "produto_list?faces-redirect=true";
+	}
+	
+	public String editar(Produto produto) {
+		this.produto = produto;
+		return "produto_cad?faces-redirect=true";
 	}
 
 	public Produto getProduto() {

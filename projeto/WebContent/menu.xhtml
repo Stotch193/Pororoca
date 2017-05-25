@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SENAI - Cadastro de Cidades</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:menubar>
+			<p:submenu label="Cadastrar" icon="ui-icon-plusthick">
+				<p:menuitem value="CIDADE" url="cidade_cad.xhtml" />
+				<p:separator />
+				<p:menuitem value="CLIENTE" url="cliente_cad.xhtml" />
+				<p:separator />
+				<p:menuitem value="PRODUTO" url="produto_cad.xhtml" />
+				<p:separator />
+				<p:menuitem value="FORNECEDOR" url="fornecedor_cad.xhtml" />
+			</p:submenu>
+
+			<p:submenu label="Listar" icon="ui-icon-document">
+				<p:menuitem value="CIDADE" url="cidade_list.xhtml" />
+				<p:separator />
+				<p:menuitem value="CLIENTE" url="cliente_list.xhtml" />
+				<p:separator />
+				<p:menuitem value="PRODUTO" url="produto_list.xhtml" />
+				<p:separator />
+				<p:menuitem value="FORNECEDOR" url="fornecedor_list.xhtml" />
+			</p:submenu>
+		</p:menubar>
+	</h:form>
+</h:body>
+</html>

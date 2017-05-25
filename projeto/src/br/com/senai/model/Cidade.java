@@ -99,7 +99,5 @@ public class Cidade implements Serializable {
 		return "Cidade [id=" + id + ", cadastroCidade=" + cadastroCidade + ", nomeCidade=" + nomeCidade
 				+ ", estadoCidade=" + estadoCidade + ", active=" + active + ", lastUpdae=" + lastUpdae + "]";
 	}
-	
-	
 
 }

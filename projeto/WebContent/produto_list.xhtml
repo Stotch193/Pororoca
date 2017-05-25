@@ -10,16 +10,17 @@
 	<title>SENAI - Cadastro de Produto</title>
 </h:head>
 <h:body>
-
+  <ui:include src="/menu.xhtml"/>
 	<h:form>
-		
+
 		<p:growl />
-		
+
 		<p:panel header="Cadastro de Produto">
 			<p:dataTable value="#{produtoBean.produtos}" var="produto"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
-				
-				<p:column headerText="Nome do Produto" sortBy="#{produto.nomeProduto}">
+
+				<p:column headerText="Nome do Produto"
+					sortBy="#{produto.nomeProduto}">
 					<h:outputText value="#{produto.nomeProduto}" />
 				</p:column>
 
@@ -29,8 +30,9 @@
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
-				
-				<p:column headerText="Fornecedor do Produto" sortBy="#{produto.fornecedorProduto}">
+
+				<p:column headerText="Fornecedor do Produto"
+					sortBy="#{produto.fornecedorProduto}">
 					<h:outputText value="#{produto.fornecedorProduto}" />
 				</p:column>
 
@@ -43,6 +45,12 @@
 				<p:column headerText="Active" width="60" style="text-align:center;">
 					<p:selectBooleanCheckbox value="#{produto.active}" />
 				</p:column>
+				
+					<p:column>
+						<p:commandButton id="btnEditar" value="Editar"
+							action="#{produtoBean.editar(produto)}" icon="ui-icon-pencil" />
+					</p:column>
+					
 			</p:dataTable>
 		</p:panel>
 	</h:form>

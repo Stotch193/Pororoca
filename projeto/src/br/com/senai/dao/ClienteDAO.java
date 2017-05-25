@@ -5,16 +5,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.com.senai.model.Fornecedor;
+import br.com.senai.model.Cliente;
 
-public class FornecedorDAO {
+public class ClienteDAO {
 
-	public void salvar(Fornecedor fornecedor) {
+	public void salvar(Cliente cliente) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
 		entityManager.getTransaction().begin();
 
-		entityManager.merge(fornecedor);
+		entityManager.merge(cliente);
 
 		entityManager.getTransaction().commit();
 
@@ -22,9 +22,9 @@ public class FornecedorDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Fornecedor> listarfornecedores() {
+	public List<Cliente> listarclientes() {
 		EntityManager entityManager = JPAUtil.getEntityManager();
-		Query query = entityManager.createQuery("from Fornecedor Order By fantasiaFornecedor");
+		Query query = entityManager.createQuery("from Cliente Order By nomeCliente");
 		return query.getResultList();
 	}
 
