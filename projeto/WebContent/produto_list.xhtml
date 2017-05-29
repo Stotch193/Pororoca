@@ -10,7 +10,7 @@
 	<title>SENAI - Cadastro de Produto</title>
 </h:head>
 <h:body>
-  <ui:include src="/menu.xhtml"/>
+	<ui:include src="/menu.xhtml" />
 	<h:form>
 
 		<p:growl />
@@ -45,13 +45,26 @@
 				<p:column headerText="Active" width="60" style="text-align:center;">
 					<p:selectBooleanCheckbox value="#{produto.active}" />
 				</p:column>
-				
-					<p:column>
-						<p:commandButton id="btnEditar" value="Editar"
-							action="#{produtoBean.editar(produto)}" icon="ui-icon-pencil" />
-					</p:column>
-					
+
+				<p:column>
+					<p:commandButton id="btnEditar" value="Editar"
+						action="#{produtoBean.editar(produto)}" icon="ui-icon-pencil" />
+				</p:column>
+
+				<p:column width="80" style="text-align:center;">
+					<p:commandButton icon="ui-icon-scissors"
+						actionListener="#{produtoBean.prepararExclusao(produto)}"
+						oncomplete="PF('confirmarExclusaoDialog').show();" update="@form" />
+				</p:column>
 			</p:dataTable>
+
+				<p:confirmDialog message="Deseja realmente excluir?"
+					widgetVar="confirmarExclusãoDialog">
+					<p:commandButton value="Sim" action="#{produtoBean.excluir()}"
+						oncomplete="PF{'confirmarExclusaoDialog').hide();" update="@form" />
+					<p:commandButton value="Não"
+						oncomplete="PF{'confirmarExclusaoDialog').hide();" />
+				</p:confirmDialog>
 		</p:panel>
 	</h:form>
 

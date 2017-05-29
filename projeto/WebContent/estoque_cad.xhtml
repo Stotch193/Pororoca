@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SENAI - Cadastro Cliente</title>
+</h:head>
+<h:body>
+  <ui:include src="/menu.xhtml"/>
+	<h:form>
+		<p:panel header="Cadastro de Cliente" id="pnl">
+			<p:panelGrid columns="2">
+
+				<p:outputLabel value="Nome do Produto:" id="nomecliente" />
+				<p:inputText type="text" title="Cliente *" required="true"
+					requiredMessage="O campo deve conter entre 4 e 40 caracteres."
+					validatorMessage="" value="#{estoqueBean.estoque.produtoEstoque}" />
+
+				<p:outputLabel value="Quantidade do Produto:" id="emailcliente" />
+				<p:inputText type="text" title="Cliente *" required="true"
+					requiredMessage="O campo deve conter entre 4 e 40 caracteres."
+					validatorMessage="" value="#{estoqueBean.estoque.quantidadeEstoque}" />
+
+				<p:outputLabel value="Data de Cadastro" id="cadastroliente" />
+				<p:calendar value="#{estoqueBean.estoque.cadastroEstoque}"
+					pattern="dd/MM/yy" maxdate="#{estoqueBean.estoque.lastUpdate}"
+					required="true"
+					requiredMessage="Preencha campo 'Data do cadastro:'" />
+
+				<p:outputLabel />
+				<p:commandButton value="Salvar" action="#{estoqueBean.salvar}"
+					update="@form" icon="ui-icon-disk" id="saveBtn" />
+
+			</p:panelGrid>
+		</p:panel>
+
+	</h:form>
+
+</h:body>
+</html>

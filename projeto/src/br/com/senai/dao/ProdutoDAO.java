@@ -5,16 +5,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.com.senai.model.Cidade;
+import br.com.senai.model.Produto;
 
-public class CidadeDAO {
+public class ProdutoDAO {
 
-	public void salvar(Cidade cidade) {
+	public void salvar(Produto produto) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
 		entityManager.getTransaction().begin();
 
-		entityManager.merge(cidade);
+		entityManager.merge(produto);
 
 		entityManager.getTransaction().commit();
 
@@ -22,24 +22,23 @@ public class CidadeDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Cidade> listarcidades() {
+	public List<Produto> listarprodutos() {
 		EntityManager entityManager = JPAUtil.getEntityManager();
-		Query query = entityManager.createQuery("from Cidade Order By nomeCidade");
+		Query query = entityManager.createQuery("from Produto Order By nomeProduto");
 		return query.getResultList();
 	}
 	
-	public void excluir(Cidade cidade) {
+	public void excluir(Produto produto) {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
 		entityManager.getTransaction().begin();
 
-		cidade = entityManager.merge(cidade);
+		produto = entityManager.merge(produto);
 		
-		entityManager.remove(cidade);
+		entityManager.remove(produto);
 
 		entityManager.getTransaction().commit();
 
 		entityManager.close();
 	}
-
 }

@@ -9,7 +9,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.senai.dao.ProdutoDAO;
-import br.com.senai.model.Cidade;
 import br.com.senai.model.Produto;
 
 
@@ -32,7 +31,14 @@ public class ProdutoBean {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto salvo com sucesso!"));
 		return "produto_list?faces-redirect=true";
 	}
-	
+	public void prepararExclusao(Produto produto){
+		this.produto= produto;
+	}
+	public void excluir(Produto produto){
+		new ProdutoDAO().excluir(produto);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Exclusão realizada"));
+		produtos = new ProdutoDAO().listarprodutos();
+	}
 	public String editar(Produto produto) {
 		this.produto = produto;
 		return "produto_cad?faces-redirect=true";

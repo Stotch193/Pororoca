@@ -9,7 +9,7 @@
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.68.0.200:3306/pororoca" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.68.0.200:3306/thiaguera" />
 			<property name="javax.persistence.jdbc.user" value="aluno" />
 			<property name="javax.persistence.jdbc.password" value="123456" />
 			

@@ -7,62 +7,52 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>SENAI - Lista de Cidades</title>
+	<title>SENAI - Lista de Clientes</title>
 </h:head>
 <h:body>
   <ui:include src="/menu.xhtml"/>
 	<h:form>
 		<p:growl />
-		<p:panel header="Cadastro de Cidade">
+		<p:panel header="Cadastro de estoque">
 
-			<p:dataTable value="#{fornecedorBean.fornecedores}" var="fornecedor"
+			<p:dataTable value="#{estoqueBean.estoques}" var="estoque"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
 
 				<p:column headerText="Nome"
-					sortBy="#{fornecedor.fantasiaFornecedor}">
-					<h:outputText value="#{fornecedor.fantasiaFornecedor}" />
+					sortBy="#{estoque.produtoEstoque}">
+					<h:outputText value="#{estoque.produtoEstoque}" />
 				</p:column>
 
-				<p:column headerText="Email" sortBy="#{fornecedor.emailFornecedor}">
-					<h:outputText value="#{fornecedor.emailFornecedor}" />
+				<p:column headerText="Quantidade" sortBy="#{estoque.quantidadeEstoque}">
+					<h:outputText value="#{estoque.quantidadeEstoque}" />
 				</p:column>
-
-				<p:column headerText="Fone" sortBy="#{fornecedor.foneaFornecedor}">
-					<h:outputText value="#{fornecedor.foneaFornecedor}" />
-				</p:column>
-
-				<p:column headerText="Endereço"
-					sortBy="#{fornecedor.enderecoFornecedor}">
-					<h:outputText value="#{fornecedor.enderecoFornecedor}" />
-				</p:column>
-
-				<p:column headerText="Cidade"
-					sortBy="#{fornecedor.cidadeFornecedor}">
-					<h:outputText value="#{fornecedor.cidadeFornecedor}" />
-				</p:column>
-
+				
 				<p:column headerText="Cadastro" width="100"
 					style="text-align:center;">
-					<h:outputText value="#{fornecedor.cadastroFornecedor}">
+					<h:outputText value="#{estoque.cadastroEstoque}">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Update" width="100" style="text-align:center;">
-					<h:outputText value="#{fornecedor.lastUpdate}">
+					<h:outputText value="#{estoque.lastUpdate}">
 						<f:convertDateTime pattern="dd/MM/yy" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Active" width="60" style="text-align:center;">
-					<p:selectBooleanCheckbox value="#{fornecedor.active}" />
+					<p:selectBooleanCheckbox value="#{estoque.active}" />
 				</p:column>
 
 					<p:column>
 						<p:commandButton id="btnEditar" value="Editar"
-							action="#{fornecedorBean.editar(fornecedor)}" icon="ui-icon-pencil" />
+							action="#{estoqueBean.editar(estoque)}" icon="ui-icon-pencil" />
 					</p:column>
 					
+					<p:column>
+						<p:commandButton icon-"ui-icon-scissor"
+						/>
+					</p:column>
 			</p:dataTable>
 		</p:panel>
 	</h:form>

@@ -9,7 +9,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.senai.dao.FornecedorDAO;
-import br.com.senai.model.Cidade;
 import br.com.senai.model.Fornecedor;
 
 
