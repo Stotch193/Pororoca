@@ -28,29 +28,30 @@ public class VendaBean {
 		new VendaDAO().salvar(venda);
 		vendas = new VendaDAO().listarvendas();
 		venda = new Venda();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Produto salvo com sucesso!"));
-		return "produto_list?faces-redirect=true";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Venda salva com sucesso!"));
+		return "venda_list?faces-redirect=true";
 	}
 	
-	public String editar(Venda produto) {
-		this.venda = produto;
-		return "produto_cad?faces-redirect=true";
+	public String editar(Venda venda) {
+		this.venda = venda;
+		return "venda_cad?faces-redirect=true";
 	}
 
-	public Venda getProduto() {
+	public Venda getVenda() {
 		return venda;
 	}
 
-	public void setProduto(Venda produto) {
-		this.venda = produto;
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 
-	public List<Venda> getProdutos() {
+	public List<Venda> getVendas() {
 		return vendas;
 	}
 
-	public void setProduto(List<Venda> produtos) {
-		this.vendas = produtos;
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
 	}
+
 
 }

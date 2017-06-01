@@ -10,49 +10,51 @@
 	<title>SENAI - Lista de Clientes</title>
 </h:head>
 <h:body>
-  <ui:include src="/menu.xhtml"/>
+	<ui:include src="/menu.xhtml" />
 	<h:form>
 		<p:growl />
-		<p:panel header="Cadastro de estoque">
+		<p:panel header="Cadastro de Cliente">
 
-			<p:dataTable value="#{estoqueBean.estoques}" var="estoque"
+			<p:dataTable value="#{compraBean.compras}" var="compra"
 				emptyMessage="Ainda não temos registros para os critérios de busca">
 
-				<p:column headerText="Nome"
-					sortBy="#{estoque.produtoEstoque}">
-					<h:outputText value="#{estoque.produtoEstoque}" />
+				<p:column headerText="Nome" sortBy="#{compra.produtoCompra}">
+					<h:outputText value="#{compra.produtoCompra}" />
 				</p:column>
 
-				<p:column headerText="Quantidade" sortBy="#{estoque.quantidadeEstoque}">
-					<h:outputText value="#{estoque.quantidadeEstoque}" />
+				<p:column headerText="Valor Unidade">
+					<h:outputText value="#{compra.valorUnidadeCompra}" />
 				</p:column>
-				
+
+				<p:column headerText="Valor total">
+					<h:outputText value="#{compra.valorTotalCompra}" />
+				</p:column>
+
+				<p:column headerText="Quantidade">
+					<h:outputText value="#{compra.quantidadeCompra}" />
+				</p:column>
+
 				<p:column headerText="Cadastro" width="100"
 					style="text-align:center;">
-					<h:outputText value="#{estoque.cadastroEstoque}">
+					<h:outputText value="#{compra.cadastroCompra}">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Update" width="100" style="text-align:center;">
-					<h:outputText value="#{estoque.lastUpdate}">
+					<h:outputText value="#{compra.lastUpdate}">
 						<f:convertDateTime pattern="dd/MM/yy" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Active" width="60" style="text-align:center;">
-					<p:selectBooleanCheckbox value="#{estoque.active}" />
+					<p:selectBooleanCheckbox value="#{compra.active}" />
 				</p:column>
 
-					<p:column>
-						<p:commandButton id="btnEditar" value="Editar"
-							action="#{estoqueBean.editar(estoque)}" 'icon="ui-icon-pencil" />
-					</p:column>
-					
-					<p:column>
-						<p:commandButton icon-"ui-icon-scissor"
-						/>
-					</p:column>
+				<p:column>
+					<p:commandButton id="btnEditar" value="Editar"
+						action="#{compraBean.editar(compra)}" icon="ui-icon-pencil" />
+				</p:column>
 			</p:dataTable>
 		</p:panel>
 	</h:form>
